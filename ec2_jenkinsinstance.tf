@@ -4,7 +4,7 @@ resource "aws_instance" "ec2_jenkinsinstance" {
   subnet_id       = aws_subnet.public.id
   security_groups = [aws_security_group.sg.id]
   key_name        = var.keyname
-  user_data       = fileexists("install_apache.sh") ? file("install_apache.sh") : null
+  user_data       = fileexists("install_jenkins.sh") ? file("install_jenkins.sh") : null
   tags = {
     "NAME" = "ec2_jenkinsinstance"
   }

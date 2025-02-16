@@ -5,7 +5,7 @@ resource "aws_eks_cluster" "E-Commerce-Project" {
     authentication_mode = "API"
   }
 
-  role_arn = aws_iam_role.cluster.arn
+  role_arn = aws_iam_role.cluster_ec.arn
   version  = "1.31"
 
   vpc_config {
@@ -23,7 +23,7 @@ resource "aws_eks_cluster" "E-Commerce-Project" {
   ]
 }
 
-resource "aws_iam_role" "cluster" {
+resource "aws_iam_role" "cluster_ec" {
   name = "eks-cluster-ECommerce"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -44,5 +44,5 @@ resource "aws_iam_role" "cluster" {
 
 resource "aws_iam_role_policy_attachment" "cluster_AmazonEKSClusterPolicy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-  role       = aws_iam_role.cluster.name
+  role       = aws_iam_role.cluster_ec.name
 }
