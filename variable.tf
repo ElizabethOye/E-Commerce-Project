@@ -40,9 +40,18 @@ variable "db_name" {
 
 variable "instance_type" {
   description = "Instance type for the autoscaling group"
-  default     = "t2.micro"
+  default = "t3.medium"
 }
 
 variable "az" {
   default = "eu-west-2a"
+}
+
+variable "eks_node_instance_type" {
+  default = "t3.medium"
+}
+
+variable "environment" {
+  description = "Environment (e.g., dev, prod)"
+  default = "dev"
 }
